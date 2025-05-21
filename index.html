@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Агрегатор онлайн-курсов</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body class="font-sans bg-gray-50">
+    <!-- Header Section -->
+    <img src="" alt="">
+    <header id="header"
+        class="w-full px-[122px] max-lg:px-[20px] max-sm:px-[15px] !py-[20px] bg-white flex items-center justify-between max-lg:gap-[37px]">
+        <!-- Header design -->
+    </header>
+
+    <!-- Hero section -->
+    <section id="hero"
+        class="flex items-center gap-[58px] max-sm:flex-col max-sm:gap-[0px] pl-[122px] max-lg:pl-[20px] max-sm:px-[15px] py-10">
+        <!-- Hero designs -->
+    </section>
+
+    <!-- Advantage section -->
+    <section id="advantage"
+        class="bg-white max-sm:flex-col max-sm:gap-[0px] px-[122px] max-lg:px-[20px] max-sm:px-[15px] py-[52px] max-sm:py-[39px]">
+        <!-- Advantage  designs-->
+    </section>
+
+    <!-- Directions section -->
+    <section class="px-[122px] max-lg:px-[15px] py-[44px] max-lg:py-[50px] max-sm:py-[40px]">
+        <div class="p-6 max-w-6xl mx-auto">
+            <div class="flex flex-col md:flex-row gap-6 mb-8">
+                <!-- Category filter parti -->
+                <div class="w-full md:w-1/4">
+                    <h3 class="text-lg font-semibold mb-3">Категории</h3>
+                    <div class="space-y-2" id="categoryFilter">
+                        <button class="block w-full text-left px-4 py-2 rounded" data-category="all">
+                            Все категории
+                        </button>
+                        <button class="block w-full text-left px-4 py-2 rounded bg-gray-100 hover:bg-gray-200"
+                            data-category="programming">
+                            Программирование
+                        </button>
+                        <button class="block w-full text-left px-4 py-2 rounded bg-gray-100 hover:bg-gray-200"
+                            data-category="marketing">
+                            Маркетинг
+                        </button>
+                        <button class="block w-full text-left px-4 py-2 rounded bg-gray-100 hover:bg-gray-200"
+                            data-category="design">
+                            Дизайн
+                        </button>
+                        <button class="block w-full text-left px-4 py-2 rounded bg-gray-100 hover:bg-gray-200"
+                            data-category="analytics">
+                            Аналитика
+                        </button>
+                    </div>
+                </div>
+                <div class="w-full md:w-3/4">
+                    <div class="mb-6">
+                        <input type="text" id="courseSearch" placeholder="Поиск курсов..."
+                            class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    </div>
+
+                    <!-- Results -->
+                    <div>
+                        <h3 class="text-lg font-semibold mb-3">
+                            <span id="selectedCategory">Все курсы</span> (<span id="courseCount">0</span>)
+                        </h3>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4" id="coursesGrid">
+                            <!-- Course part  -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- School section -->
+    <section id="school" class="py-12 px-4 sm:px-6 lg:px-8 bg-white">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-3xl sm:text-4xl font-bold mb-8 text-center">Школы</h2>
+        </div>
+    </section>
+    <script src="./main.js"></script>
+</body>
+
+</html>
