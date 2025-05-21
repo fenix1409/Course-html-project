@@ -230,3 +230,5 @@ document.querySelectorAll('nav a').forEach(link => {
         document.getElementById('header').innerHTML = Header()
     })
 })
+
+// Online courses part

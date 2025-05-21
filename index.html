@@ -2,90 +2,383 @@
 <html lang="ru">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Агрегатор онлайн-курсов</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Агрегатор онлайн-курсов</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 </head>
 
 <body class="font-sans bg-gray-50">
-    <!-- Header Section -->
-    <img src="" alt="">
-    <header id="header"
-        class="w-full px-[122px] max-lg:px-[20px] max-sm:px-[15px] !py-[20px] bg-white flex items-center justify-between max-lg:gap-[37px]">
-        <!-- Header design -->
-    </header>
+  <!-- Header Section -->
+  <header id="header"
+    class="w-full px-[122px] max-lg:px-[20px] max-sm:px-[15px] !py-[20px] bg-white flex items-center justify-between max-lg:gap-[37px]">
+    <!-- Header design -->
+  </header>
 
-    <!-- Hero section -->
-    <section id="hero"
-        class="flex items-center gap-[58px] max-sm:flex-col max-sm:gap-[0px] pl-[122px] max-lg:pl-[20px] max-sm:px-[15px] py-10">
-        <!-- Hero designs -->
-    </section>
+  <!-- Hero section -->
+  <section id="hero"
+    class="flex items-center gap-[58px] max-sm:flex-col max-sm:gap-[0px] pl-[122px] max-lg:pl-[20px] max-sm:px-[15px] py-10">
+    <!-- Hero designs -->
+  </section>
 
-    <!-- Advantage section -->
-    <section id="advantage"
-        class="bg-white max-sm:flex-col max-sm:gap-[0px] px-[122px] max-lg:px-[20px] max-sm:px-[15px] py-[52px] max-sm:py-[39px]">
-        <!-- Advantage  designs-->
-    </section>
+  <!-- Advantage section -->
+  <section id="advantage"
+    class="bg-white max-sm:flex-col max-sm:gap-[0px] px-[122px] max-lg:px-[20px] max-sm:px-[15px] py-[52px] max-sm:py-[39px]">
+    <!-- Advantage designs -->
+  </section>
 
-    <!-- Directions section -->
-    <section class="px-[122px] max-lg:px-[15px] py-[44px] max-lg:py-[50px] max-sm:py-[40px]">
-        <div class="p-6 max-w-6xl mx-auto">
-            <div class="flex flex-col md:flex-row gap-6 mb-8">
-                <!-- Category filter parti -->
-                <div class="w-full md:w-1/4">
-                    <h3 class="text-lg font-semibold mb-3">Категории</h3>
-                    <div class="space-y-2" id="categoryFilter">
-                        <button class="block w-full text-left px-4 py-2 rounded" data-category="all">
-                            Все категории
-                        </button>
-                        <button class="block w-full text-left px-4 py-2 rounded bg-gray-100 hover:bg-gray-200"
-                            data-category="programming">
-                            Программирование
-                        </button>
-                        <button class="block w-full text-left px-4 py-2 rounded bg-gray-100 hover:bg-gray-200"
-                            data-category="marketing">
-                            Маркетинг
-                        </button>
-                        <button class="block w-full text-left px-4 py-2 rounded bg-gray-100 hover:bg-gray-200"
-                            data-category="design">
-                            Дизайн
-                        </button>
-                        <button class="block w-full text-left px-4 py-2 rounded bg-gray-100 hover:bg-gray-200"
-                            data-category="analytics">
-                            Аналитика
-                        </button>
-                    </div>
-                </div>
-                <div class="w-full md:w-3/4">
-                    <div class="mb-6">
-                        <input type="text" id="courseSearch" placeholder="Поиск курсов..."
-                            class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
-                    </div>
+  <!-- Directions section -->
+  <section class="px-[122px] max-lg:px-[15px] py-[44px] max-lg:py-[50px] max-sm:py-[40px]">
+    <div class="p-6 max-w-6xl mx-auto">
+      <div class="flex flex-col md:flex-row gap-6 mb-8">
+        <!-- Category filter parti -->
+        <div class="w-full md:w-1/4">
+          <h3 class="text-lg font-semibold mb-3">Категории</h3>
+          <div class="space-y-2" id="categoryFilter">
+            <button class="block w-full text-left px-4 py-2 rounded" data-category="all">
+              Все категории
+            </button>
+            <button class="block w-full text-left px-4 py-2 rounded bg-gray-100 hover:bg-gray-200"
+              data-category="programming">
+              Программирование
+            </button>
+            <button class="block w-full text-left px-4 py-2 rounded bg-gray-100 hover:bg-gray-200"
+              data-category="marketing">
+              Маркетинг
+            </button>
+            <button class="block w-full text-left px-4 py-2 rounded bg-gray-100 hover:bg-gray-200"
+              data-category="design">
+              Дизайн
+            </button>
+            <button class="block w-full text-left px-4 py-2 rounded bg-gray-100 hover:bg-gray-200"
+              data-category="analytics">
+              Аналитика
+            </button>
+          </div>
+        </div>
+        <div class="w-full md:w-3/4">
+          <div class="mb-6">
+            <input type="text" id="courseSearch" placeholder="Поиск курсов..."
+              class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" />
+          </div>
 
-                    <!-- Results -->
-                    <div>
-                        <h3 class="text-lg font-semibold mb-3">
-                            <span id="selectedCategory">Все курсы</span> (<span id="courseCount">0</span>)
-                        </h3>
+          <!-- Results -->
+          <div>
+            <h3 class="text-lg font-semibold mb-3">
+              <span id="selectedCategory">Все курсы</span> (<span id="courseCount">0</span>)
+            </h3>
 
-                        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4" id="coursesGrid">
-                            <!-- Course part  -->
-                        </div>
-                    </div>
-                </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4" id="coursesGrid">
+              <!-- Course part -->
             </div>
+          </div>
         </div>
-    </section>
+      </div>
+    </div>
+  </section>
 
-    <!-- School section -->
-    <section id="school" class="py-12 px-4 sm:px-6 lg:px-8 bg-white">
-        <div class="max-w-7xl mx-auto">
-            <h2 class="text-3xl sm:text-4xl font-bold mb-8 text-center">Школы</h2>
+  <!-- School section -->
+  <section id="school" class="py-12 px-4 sm:px-6 lg:px-8 bg-white">
+    <div class="max-w-7xl mx-auto">
+      <h2 class="text-3xl sm:text-4xl font-bold mb-8 text-center">Школы</h2>
+
+      <div class="swiper mySwiper">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide bg-gray-100 pt-[105px] pb-[98px] pl-[80px] pr-[42px] rounded text-center">
+            <img src="./images/nestology.svg" alt="card image" width="165" height="17">
+          </div>
+          <div class="swiper-slide bg-gray-100 pt-[69px] pb-[61px] px-[64px] rounded text-center">
+            <img src="./images/skill.svg" alt="card image" width="159" height="90">
+          </div>
+          <div class="swiper-slide bg-gray-100 pt-[96px] pb-[78px] px-[83px] rounded text-center">
+            <img src="./images/otus.svg" alt="card image" width="120" height="46">
+          </div>
+          <div class="swiper-slide bg-gray-100 pt-[86px] pb-[73px] px-[76px] rounded text-center">
+            <img src="./images/geekbrains_.svg" alt="card image" width="134" height="65">
+          </div>
         </div>
-    </section>
-    <script src="./main.js"></script>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Online course section -->
+  <section class="px-[122px] max-lg:px-[15px] py-[44px] max-lg:py-[50px] max-sm:py-[40px]">
+    <h2
+      class="text-[30px] leading-[100%] font-black mb-[33px] max-lg:mb-[23px] max-sm:mb-[30px] max-sm:text-[22px] text-center">
+      Популярные онлайн-курсы</h2>
+    <div
+      class="flex items-center gap-[35px] justify-center overflow-x-auto mb-[33px] max-lg:mb-[20px] max-sm:mb-[30px]">
+      <button class="category active text-[14px] leading-[36px] font-bold" data-category="all">Все</button>
+      <button class="text-[14px] leading-[36px] font-bold" data-category="programming">Программирование</button>
+      <button class="text-[14px] leading-[36px] font-bold" data-category="marketing">Маркетинг</button>
+      <button class="text-[14px] leading-[36px] font-bold" data-category="design">Дизайн</button>
+      <button class="text-[14px] leading-[36px] font-bold" data-category="analytics">Аналитика</button>
+      <button class="text-[14px] leading-[36px] font-bold" data-category="finance">Финансы</button>
+      <button class="text-[14px] leading-[36px] font-bold" data-category="management">Управление</button>
+      <button class="text-[14px] leading-[36px] font-bold" data-category="content">Контент-маркетинг</button>
+      <button class="text-[14px] leading-[36px] font-bold" data-category="languages">Иностранные языки</button>
+    </div>
+    <div id="online-course-category" class="flex items-center gap-[10px] flex-col">
+      <div
+        class="w-full flex items-center justify-between max-lg:gap-[20px] max-sm:gap-[15px] bg-white border-[1px] rounded-[8px] border-[#F0F0F0] px-[42px] max-lg:px-[20px] max-sm:px-[30px] pt-[21px] pb-[15px] max-lg:pt-[23px] max-lg:pb-[14px] max-sm:pt-[20px] max-sm:pb-[26px] max-sm:flex-wrap">
+        <h3 class="text-[16px] leading-[24px] font-bold">Профессия веб-разработчик</h3>
+        <div>
+          <strong class="text-[18px] leading-[27px] font-bold">Skillbox</strong>
+          <div class="flex items-center gap-[8px]">
+            <img src="./images/strar.svg" alt="star img" width="14px" height="14px">
+            <span class="text-[18px] leading-[27px] font-bold">4.5</span>
+          </div>
+          <p class="text-[12px] leading-[27px] font-bold text-[#B5B5B5]">Отзывы о школе 58</p>
+        </div>
+        <div>
+          <p class="line-through text-[10px] leading-[27px] font-bold text-[#B5B5B5]">85 000 руб</p>
+          <p class="text-[12px] leading-[27px] font-bold">66 800 руб</p>
+          <strong class="text-[14px] leading-[27px] font-bold text-[#00C213]">от 4 745 руб./месяц</strong>
+        </div>
+        <div class="flex items-center gap-[15px]">
+          <img src="./images/clock.svg" alt="clock image" width="17px" height="17px">
+          <span class="text-[12px] leading-[14px] font-bold">В любое время</span>
+        </div>
+        <div class="space-y-[12px]">
+          <div class="flex items-center gap-[18px]">
+            <img src="./images/calendar.svg" alt="image" width="12px" height="12px">
+            <strong class="text-[12px] leading-[24px] font-bold">3 месяца</strong>
+          </div>
+          <div class="flex items-center gap-[18px]">
+            <img src="./images/calendar.svg" alt="image" width="12px" height="12px">
+            <strong class="text-[12px] leading-[24px] font-bold">Начальный</strong>
+          </div>
+          <div class="flex items-center gap-[18px]">
+            <img src="./images/suitcase.svg" alt="image" width="12px" height="12px">
+            <strong class="text-[12px] leading-[24px] font-bold">Стажировка</strong>
+          </div>
+          <div class="flex items-center gap-[18px]">
+            <img src="./images/diploma.svg" alt="image" width="12px" height="12px">
+            <strong class="text-[12px] leading-[24px] font-bold">Диплом</strong>
+          </div>
+        </div>
+        <div class="space-y-[6px]">
+          <button
+            class="w-[126px] py-[6px] px-[22px] bg-[#01E45C] rounded-[100px] text-[12px] leading-[24px] font-bold text-white">На
+            сайт курса</button>
+          <button
+            class="w-[126px] py-[6px] px-[30px] bg-transparent border-[1px] border-[#D7D7D7] rounded-[100px] text-[12px] leading-[24px] font-bold text-[#8C8C8C]">Подробнее</button>
+        </div>
+      </div>
+      <div
+        class="w-full flex items-center justify-between max-lg:gap-[20px] max-sm:gap-[15px] bg-white border-[1px] rounded-[8px] border-[#F0F0F0] px-[42px] max-lg:px-[20px] max-sm:px-[30px] pt-[21px] pb-[15px] max-lg:pt-[23px] max-lg:pb-[14px] max-sm:pt-[20px] max-sm:pb-[26px] max-sm:flex-wrap">
+        <h3 class="text-[16px] leading-[24px] font-bold">Профессия веб-разработчик</h3>
+        <div>
+          <strong class="text-[18px] leading-[27px] font-bold">Skillbox</strong>
+          <div class="flex items-center gap-[8px]">
+            <img src="./images/strar.svg" alt="star img" width="14px" height="14px">
+            <span class="text-[18px] leading-[27px] font-bold">4.5</span>
+          </div>
+          <p class="text-[12px] leading-[27px] font-bold text-[#B5B5B5]">Отзывы о школе 58</p>
+        </div>
+        <div>
+          <p class="line-through text-[10px] leading-[27px] font-bold text-[#B5B5B5]">85 000 руб</p>
+          <p class="text-[12px] leading-[27px] font-bold">66 800 руб</p>
+          <strong class="text-[14px] leading-[27px] font-bold text-[#00C213]">от 4 745 руб./месяц</strong>
+        </div>
+        <div class="flex items-center gap-[15px]">
+          <img src="./images/clock.svg" alt="clock image" width="17px" height="17px">
+          <span class="text-[12px] leading-[14px] font-bold">В любое время</span>
+        </div>
+        <div class="space-y-[12px]">
+          <div class="flex items-center gap-[18px]">
+            <img src="./images/calendar.svg" alt="image" width="12px" height="12px">
+            <strong class="text-[12px] leading-[24px] font-bold">3 месяца</strong>
+          </div>
+          <div class="flex items-center gap-[18px]">
+            <img src="./images/calendar.svg" alt="image" width="12px" height="12px">
+            <strong class="text-[12px] leading-[24px] font-bold">Начальный</strong>
+          </div>
+          <div class="flex items-center gap-[18px]">
+            <img src="./images/suitcase.svg" alt="image" width="12px" height="12px">
+            <strong class="text-[12px] leading-[24px] font-bold">Стажировка</strong>
+          </div>
+          <div class="flex items-center gap-[18px]">
+            <img src="./images/diploma.svg" alt="image" width="12px" height="12px">
+            <strong class="text-[12px] leading-[24px] font-bold">Диплом</strong>
+          </div>
+        </div>
+        <div class="space-y-[6px]">
+          <button
+            class="w-[126px] py-[6px] px-[22px] bg-[#01E45C] rounded-[100px] text-[12px] leading-[24px] font-bold text-white">На
+            сайт курса</button>
+          <button
+            class="w-[126px] py-[6px] px-[30px] bg-transparent border-[1px] border-[#D7D7D7] rounded-[100px] text-[12px] leading-[24px] font-bold text-[#8C8C8C]">Подробнее</button>
+        </div>
+      </div>
+      <div
+        class="w-full flex items-center justify-between max-lg:gap-[20px] max-sm:gap-[15px] bg-white border-[1px] rounded-[8px] border-[#F0F0F0] px-[42px] max-lg:px-[20px] max-sm:px-[30px] pt-[21px] pb-[15px] max-lg:pt-[23px] max-lg:pb-[14px] max-sm:pt-[20px] max-sm:pb-[26px] max-sm:flex-wrap">
+        <h3 class="text-[16px] leading-[24px] font-bold">Профессия веб-разработчик</h3>
+        <div>
+          <strong class="text-[18px] leading-[27px] font-bold">Skillbox</strong>
+          <div class="flex items-center gap-[8px]">
+            <img src="./images/strar.svg" alt="star img" width="14px" height="14px">
+            <span class="text-[18px] leading-[27px] font-bold">4.5</span>
+          </div>
+          <p class="text-[12px] leading-[27px] font-bold text-[#B5B5B5]">Отзывы о школе 58</p>
+        </div>
+        <div>
+          <p class="line-through text-[10px] leading-[27px] font-bold text-[#B5B5B5]">85 000 руб</p>
+          <p class="text-[12px] leading-[27px] font-bold">66 800 руб</p>
+          <strong class="text-[14px] leading-[27px] font-bold text-[#00C213]">от 4 745 руб./месяц</strong>
+        </div>
+        <div class="flex items-center gap-[15px]">
+          <img src="./images/clock.svg" alt="clock image" width="17px" height="17px">
+          <span class="text-[12px] leading-[14px] font-bold">В любое время</span>
+        </div>
+        <div class="space-y-[12px]">
+          <div class="flex items-center gap-[18px]">
+            <img src="./images/calendar.svg" alt="image" width="12px" height="12px">
+            <strong class="text-[12px] leading-[24px] font-bold">3 месяца</strong>
+          </div>
+          <div class="flex items-center gap-[18px]">
+            <img src="./images/calendar.svg" alt="image" width="12px" height="12px">
+            <strong class="text-[12px] leading-[24px] font-bold">Начальный</strong>
+          </div>
+          <div class="flex items-center gap-[18px]">
+            <img src="./images/suitcase.svg" alt="image" width="12px" height="12px">
+            <strong class="text-[12px] leading-[24px] font-bold">Стажировка</strong>
+          </div>
+          <div class="flex items-center gap-[18px]">
+            <img src="./images/diploma.svg" alt="image" width="12px" height="12px">
+            <strong class="text-[12px] leading-[24px] font-bold">Диплом</strong>
+          </div>
+        </div>
+        <div class="space-y-[6px]">
+          <button
+            class="w-[126px] py-[6px] px-[22px] bg-[#01E45C] rounded-[100px] text-[12px] leading-[24px] font-bold text-white">На
+            сайт курса</button>
+          <button
+            class="w-[126px] py-[6px] px-[30px] bg-transparent border-[1px] border-[#D7D7D7] rounded-[100px] text-[12px] leading-[24px] font-bold text-[#8C8C8C]">Подробнее</button>
+        </div>
+      </div>
+      <div
+        class="w-full flex items-center justify-between max-lg:gap-[20px] max-sm:gap-[15px] bg-white border-[1px] rounded-[8px] border-[#F0F0F0] px-[42px] max-lg:px-[20px] max-sm:px-[30px] pt-[21px] pb-[15px] max-lg:pt-[23px] max-lg:pb-[14px] max-sm:pt-[20px] max-sm:pb-[26px] max-sm:flex-wrap">
+        <h3 class="text-[16px] leading-[24px] font-bold">Профессия веб-разработчик</h3>
+        <div>
+          <strong class="text-[18px] leading-[27px] font-bold">Skillbox</strong>
+          <div class="flex items-center gap-[8px]">
+            <img src="./images/strar.svg" alt="star img" width="14px" height="14px">
+            <span class="text-[18px] leading-[27px] font-bold">4.5</span>
+          </div>
+          <p class="text-[12px] leading-[27px] font-bold text-[#B5B5B5]">Отзывы о школе 58</p>
+        </div>
+        <div>
+          <p class="line-through text-[10px] leading-[27px] font-bold text-[#B5B5B5]">85 000 руб</p>
+          <p class="text-[12px] leading-[27px] font-bold">66 800 руб</p>
+          <strong class="text-[14px] leading-[27px] font-bold text-[#00C213]">от 4 745 руб./месяц</strong>
+        </div>
+        <div class="flex items-center gap-[15px]">
+          <img src="./images/clock.svg" alt="clock image" width="17px" height="17px">
+          <span class="text-[12px] leading-[14px] font-bold">В любое время</span>
+        </div>
+        <div class="space-y-[12px]">
+          <div class="flex items-center gap-[18px]">
+            <img src="./images/calendar.svg" alt="image" width="12px" height="12px">
+            <strong class="text-[12px] leading-[24px] font-bold">3 месяца</strong>
+          </div>
+          <div class="flex items-center gap-[18px]">
+            <img src="./images/calendar.svg" alt="image" width="12px" height="12px">
+            <strong class="text-[12px] leading-[24px] font-bold">Начальный</strong>
+          </div>
+          <div class="flex items-center gap-[18px]">
+            <img src="./images/suitcase.svg" alt="image" width="12px" height="12px">
+            <strong class="text-[12px] leading-[24px] font-bold">Стажировка</strong>
+          </div>
+          <div class="flex items-center gap-[18px]">
+            <img src="./images/diploma.svg" alt="image" width="12px" height="12px">
+            <strong class="text-[12px] leading-[24px] font-bold">Диплом</strong>
+          </div>
+        </div>
+        <div class="space-y-[6px]">
+          <button
+            class="w-[126px] py-[6px] px-[22px] bg-[#01E45C] rounded-[100px] text-[12px] leading-[24px] font-bold text-white">На
+            сайт курса</button>
+          <button
+            class="w-[126px] py-[6px] px-[30px] bg-transparent border-[1px] border-[#D7D7D7] rounded-[100px] text-[12px] leading-[24px] font-bold text-[#8C8C8C]">Подробнее</button>
+        </div>
+      </div>
+      <div
+        class="w-full flex items-center justify-between max-lg:gap-[20px] max-sm:gap-[15px] bg-white border-[1px] rounded-[8px] border-[#F0F0F0] px-[42px] max-lg:px-[20px] max-sm:px-[30px] pt-[21px] pb-[15px] max-lg:pt-[23px] max-lg:pb-[14px] max-sm:pt-[20px] max-sm:pb-[26px] max-sm:flex-wrap">
+        <h3 class="text-[16px] leading-[24px] font-bold">Профессия веб-разработчик</h3>
+        <div>
+          <strong class="text-[18px] leading-[27px] font-bold">Skillbox</strong>
+          <div class="flex items-center gap-[8px]">
+            <img src="./images/strar.svg" alt="star img" width="14px" height="14px">
+            <span class="text-[18px] leading-[27px] font-bold">4.5</span>
+          </div>
+          <p class="text-[12px] leading-[27px] font-bold text-[#B5B5B5]">Отзывы о школе 58</p>
+        </div>
+        <div>
+          <p class="line-through text-[10px] leading-[27px] font-bold text-[#B5B5B5]">85 000 руб</p>
+          <p class="text-[12px] leading-[27px] font-bold">66 800 руб</p>
+          <strong class="text-[14px] leading-[27px] font-bold text-[#00C213]">от 4 745 руб./месяц</strong>
+        </div>
+        <div class="flex items-center gap-[15px]">
+          <img src="./images/clock.svg" alt="clock image" width="17px" height="17px">
+          <span class="text-[12px] leading-[14px] font-bold">В любое время</span>
+        </div>
+        <div class="space-y-[12px]">
+          <div class="flex items-center gap-[18px]">
+            <img src="./images/calendar.svg" alt="image" width="12px" height="12px">
+            <strong class="text-[12px] leading-[24px] font-bold">3 месяца</strong>
+          </div>
+          <div class="flex items-center gap-[18px]">
+            <img src="./images/calendar.svg" alt="image" width="12px" height="12px">
+            <strong class="text-[12px] leading-[24px] font-bold">Начальный</strong>
+          </div>
+          <div class="flex items-center gap-[18px]">
+            <img src="./images/suitcase.svg" alt="image" width="12px" height="12px">
+            <strong class="text-[12px] leading-[24px] font-bold">Стажировка</strong>
+          </div>
+          <div class="flex items-center gap-[18px]">
+            <img src="./images/diploma.svg" alt="image" width="12px" height="12px">
+            <strong class="text-[12px] leading-[24px] font-bold">Диплом</strong>
+          </div>
+        </div>
+        <div class="space-y-[6px]">
+          <button
+            class="w-[126px] py-[6px] px-[22px] bg-[#01E45C] rounded-[100px] text-[12px] leading-[24px] font-bold text-white">На
+            сайт курса</button>
+          <button
+            class="w-[126px] py-[6px] px-[30px] bg-transparent border-[1px] border-[#D7D7D7] rounded-[100px] text-[12px] leading-[24px] font-bold text-[#8C8C8C]">Подробнее</button>
+        </div>
+      </div>
+    </div>
+    <button class="mt-[25px] max-lg:mt-[30px] mx-auto block w-[180px] py-[13px] px-[38px] bg-transparent border-[1px] border-[#D7D7D7] rounded-[100px] text-[12px] leading-[24px] font-bold text-[#8C8C8C]">Посмотреть еще</button>
+  </section>
+
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script>
+    new Swiper(".mySwiper", {
+      slidesPerView: 1,
+      spaceBetween: 20,
+      loop: true,
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
+      breakpoints: {
+        640: {
+          slidesPerView: 2,
+        },
+        1024: {
+          slidesPerView: 3,
+        },
+      },
+    });
+  </script>
+
+  <script src="./main.js"></script>
 </body>
 
 </html>
