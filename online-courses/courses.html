@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Агрегатор онлайн-курсов</title>
+    <link rel="stylesheet" href="../main.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body>
+    <!-- Header Section -->
+    <header id="header"
+        class="w-full px-[122px] max-lg:px-[20px] max-sm:px-[15px] !py-[20px] bg-white flex items-center justify-between max-lg:gap-[37px]">
+        <!-- Header design -->
+    </header>
+    <main class="mt-[25px] max-lg:mt-[15px] max-sm:mx-[15px]">
+        <section class="px-[122px] max-lg:px-[15px] max-sm:px-[15px] mb-[39px] max-sm:mb-[20px]">
+            <div class="flex items-center gap-[5px] mb-[9px]">
+                <a class="text-[12px] leading-[30px]" href="/index.html">Главная</a>
+                <span>-</span>
+                <a class="text-[12px] leading-[30px] text-[#A6A6A6]" href="#">Онлайн-курсы</a>
+            </div>
+            <div class="max-lg:w-full">
+                <h1
+                    class="text-[36px] leading-[100%] font-black max-lg:leading-[44px] max-lg:mb-[10px] max-sm:text-[26px] max-sm:leading-[100%] max-sm:mb-[16px] max-sm:text-center">
+                    Онлайн-курсы</h1>
+                <p class="text-[14px] leading-[24px]">Список всех онлайн-курсов с рейтингом, отзывами и детальным
+                    описанием курса 2021 года. Для удобства поиска курса используйте фильтры, сортировку, сравнение и
+                    поиск. Мы обновляем информацию о всех курсах каждую неделю.</p>
+            </div>
+        </section>
+
+        <!-- Onlien courses part -->
+        <section class="px-[122px] max-lg:px-[15px] max-sm:px-[15px] mb-[39px] max-sm:mb-[20px]">
+            <!-- Categories pat -->
+            <div class="mb-8 overflow-x-auto">
+                <div class="flex space-x-4 pb-2" id="categories-container"></div>
+            </div>
+            <!-- Course count part -->
+            <div class="mb-6">
+                <h2 class="text-lg font-bold text-green-500" id="course-count">Найдено 0 курсов</h2>
+            </div>
+            <!-- Filter part -->
+            <div class="mb-6 flex flex-wrap gap-2" id="filter-badges"></div>
+            <div class="flex flex-col md:flex-row gap-6">
+                <div class="w-full md:w-1/4 bg-white p-4 rounded-lg shadow-sm">
+                    <div class="flex justify-between items-center mb-4">
+                        <h3 class="font-bold text-lg">Фильтры</h3>
+                        <button id="reset-filters" class="text-gray-500 hover:text-gray-700">
+                            <i data-lucide="refresh-cw" class="w-4 h-4"></i>
+                        </button>
+                    </div>
+                    <!-- Price filter part -->
+                    <div class="mb-6">
+                        <h4 class="font-medium mb-3">Цена</h4>
+                        <div class="space-y-2">
+                            <div class="flex items-center">
+                                <input type="checkbox" id="paid"
+                                    class="h-4 w-4 rounded border-gray-300 text-green-500 focus:ring-green-500">
+                                <label for="paid" class="ml-2 text-sm text-gray-700">Платные</label>
+                            </div>
+                            <div class="flex items-center">
+                                <input type="checkbox" id="free"
+                                    class="h-4 w-4 rounded border-gray-300 text-green-500 focus:ring-green-500">
+                                <label for="free" class="ml-2 text-sm text-gray-700">Бесплатные</label>
+                            </div>
+                        </div>
+                        <div class="mt-4">
+                            <input type="range" min="0" max="157800" step="1000" value="0" class="slider mt-6"
+                                id="price-range">
+                            <div class="flex justify-between mt-2">
+                                <span class="text-sm text-gray-500" id="min-price">0</span>
+                                <span class="text-sm text-gray-500" id="max-price">157800</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mb-6">
+                        <h4 class="font-medium mb-3">Школы</h4>
+                        <div class="space-y-2" id="schools-filter">
+                        </div>
+                    </div>
+                    <div class="mb-6">
+                        <h4 class="font-medium mb-3">Уровень сложности</h4>
+                        <div class="space-y-2" id="levels-filter">
+                        </div>
+                    </div>
+                    <div class="mb-6">
+                        <h4 class="font-medium mb-3">Длительность(месяцев)</h4>
+                        <input type="range" min="0" max="36" step="1" value="0" class="slider mt-6" id="duration-range">
+                        <div class="flex justify-between mt-2">
+                            <span class="text-sm text-gray-500" id="min-duration">0</span>
+                            <span class="text-sm text-gray-500" id="max-duration">36</span>
+                        </div>
+                    </div>
+                    <div class="mb-6">
+                        <h4 class="font-medium mb-3">Возможность стажировки</h4>
+                        <div class="flex items-center">
+                            <input type="checkbox" id="internship"
+                                class="h-4 w-4 rounded border-gray-300 text-green-500 focus:ring-green-500">
+                            <label for="internship" class="ml-2 text-sm text-gray-700">Возможность стажировки</label>
+                        </div>
+                    </div>
+                    <div class="mb-6">
+                        <h4 class="font-medium mb-3">Возможность получить сертификат</h4>
+                        <div class="flex items-center">
+                            <input type="checkbox" id="certificate"
+                                class="h-4 w-4 rounded border-gray-300 text-green-500 focus:ring-green-500">
+                            <label for="certificate" class="ml-2 text-sm text-gray-700">Возможность получить
+                                сертификат</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="w-full md:w-3/4" id="courses-container"></div>
+            </div>
+        </section>
+
+        <!-- other category section -->
+        <section
+            class="pl-[385px] pr-[92px] max-lg:px-[15px] max-sm:px-[15px] mb-[39px] max-sm:mb-[20px] mb-[38px] max-sm:mb-[50px]">
+            <h2 class="text-[24px] leading-[100%] font-bold mb-[27px] max-lg:mb-[30px] max-sm:text-[22px]">Другие
+                категории курсов по направлению программирование</h2>
+            <div id="other-categories"></div>
+        </section>
+
+        <!-- online scoool part  -->
+        <section
+            class="pl-[385px] pr-[92px] max-lg:px-[15px] max-sm:px-[15px] mb-[39px] max-sm:mb-[20px] mb-[38px] max-sm:mb-[50px]">
+            <h2 class="text-[24px] leading-[100%] font-bold mb-[26px] max-lg:mb-[30px] max-sm:text-[22px]">Онлайн-школы
+                преподающие программирование</h2>
+            <div class="flex items-center flex-col gap-[10px]">
+                <div class="w-full px-[35px] pt-[31px] pb-[22px] rounded-[5px] border-[#F0F0F0] border-[1px] flex items-center justify-between bg-white max-sm:flex-wrap max-sm:gap-[30px]">
+                    <div class="">
+                        <h3 class="text-[18px] leading-[27px] font-bold mb-[5px]">Skillbox</h3>
+                        <div class="flex items-center gap-[8px]">
+                            <img src="../images/strar.svg" alt="star" width="14px" height="14px">
+                            <span class="text-[18px] leading-[27px] font-bold block">4.5</span>
+                        </div>
+                        <p class="text-[12px] leading-[27px] font-bold text-[#00C213]">Отзывы о школе 58</p>
+                    </div>
+                    <div class="pl-[33px] max-sm:pl-[0px] border-x-[1px] pr-[69px] max-sm:pr-[0px] border-[#F0F0F0]">
+                        <h3 class="text-[18px] leading-[27px] font-bold">Skillbox (Скилбокс)</h3>
+                        <p class="text-[12px] leading-[27px]">178 курсов по 48 темам</p>
+                        <div class="flex items-center gap-[6px]">
+                            <button
+                                class="w-[112px] px-[11px] text-[10px] leading-[27px] rounded-[50px] bg-[#F0F3FC]">Программирование</button>
+                            <button
+                                class="w-[56px] px-[11px] text-[10px] leading-[27px] rounded-[50px] bg-[#F0F3FC]">Дизайн</button>
+                        </div>
+                    </div>
+                    <button
+                        class="block w-[134px] py-[6px] px-[34px] bg-[#01E45C] rounded-[100px] text-[12px] leading-[24px] font-bold text-white">Подробнее</button>
+                </div>
+                <div class="w-full px-[35px] pt-[31px] pb-[22px] rounded-[5px] border-[#F0F0F0] border-[1px] flex items-center justify-between bg-white max-sm:flex-wrap max-sm:gap-[30px]">
+                    <div class="">
+                        <h3 class="text-[18px] leading-[27px] font-bold mb-[5px]">Skillbox</h3>
+                        <div class="flex items-center gap-[8px]">
+                            <img src="../images/strar.svg" alt="star" width="14px" height="14px">
+                            <span class="text-[18px] leading-[27px] font-bold block">4.5</span>
+                        </div>
+                        <p class="text-[12px] leading-[27px] font-bold text-[#00C213]">Отзывы о школе 58</p>
+                    </div>
+                    <div class="pl-[33px] max-sm:pl-[0px] border-x-[1px] pr-[69px] max-sm:pr-[0px] border-[#F0F0F0]">
+                        <h3 class="text-[18px] leading-[27px] font-bold">Skillbox (Скилбокс)</h3>
+                        <p class="text-[12px] leading-[27px]">178 курсов по 48 темам</p>
+                        <div class="flex items-center gap-[6px]">
+                            <button
+                                class="w-[112px] px-[11px] text-[10px] leading-[27px] rounded-[50px] bg-[#F0F3FC]">Программирование</button>
+                            <button
+                                class="w-[56px] px-[11px] text-[10px] leading-[27px] rounded-[50px] bg-[#F0F3FC]">Дизайн</button>
+                        </div>
+                    </div>
+                    <button
+                        class="block w-[134px] py-[6px] px-[34px] bg-[#01E45C] rounded-[100px] text-[12px] leading-[24px] font-bold text-white">Подробнее</button>
+                </div>
+            </div>
+        </section>
+    </main>
+    <!-- Footer section -->
+    <footer id="footer"
+        class="pt-[51px] px-[125px] pb-[22px] max-lg:px-[51px] max-sm:pt-[44px] max-lg:px-[67px] max-sm:pb-[16px] bg-black">
+    </footer>
+    <script src="./course.js"></script>
+</body>
+
+</html>
